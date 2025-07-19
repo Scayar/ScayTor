@@ -1,7 +1,5 @@
 # 🕵️‍♂️ ScayTor
 
-![Banner](CuteCat.png)
-
 ## What is ScayTor?
 
 **ScayTor** is a modern, powerful, and smart tool for searching and collecting .onion (dark web) sites from the clearnet. It features a beautiful hacker-inspired CLI, generates stunning HTML reports with dark/light mode, and provides a seamless, user-friendly experience for security researchers, enthusiasts, and anyone exploring the Tor network.
@@ -61,7 +59,7 @@ python TorSearch.py
 
 | Light Mode | Dark Mode | CLI |
 |:---:|:---:|:---:|
-| ![Light Preview](Perview.png) | ![Dark Preview](Perview1.png) | ![CLI Preview](Perview2.png) |
+| ![Light Preview](Perview1.png) | ![Dark Preview](Perview2.png) | ![CLI Preview](Perview.png) |
 
 ---
 

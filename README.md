@@ -247,7 +247,7 @@ sequenceDiagram
 ```mermaid
 flowchart TD
     A[Start: HTML Content] --> B[Define Regex Pattern]
-    B --> C[\b[a-zA-Z2-7]16-56\.onion\b]
+    B --> C["Regex: Base32 Pattern<br/>16-56 chars + .onion"]
     C --> D[Find All Matches]
     D --> E{Matches Found?}
     E -->|No| F[Return Empty List]

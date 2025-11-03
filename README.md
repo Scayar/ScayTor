@@ -104,8 +104,8 @@ graph TB
     end
     
     subgraph Ext["External Services"]
-        Q[("ahmia.fi Search Engine")]
-        R[("user-agents.txt File")]
+        Q(ahmia.fi Search Engine)
+        R(user-agents.txt File)
     end
     
     J --> Q

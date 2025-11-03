@@ -80,44 +80,36 @@
 ### System Architecture
 
 ```mermaid
-graph TB
-    subgraph App[ScayTor Application]
-        A[CLI Interface] --> B[Argument Parser]
-        B --> C[Main Controller]
-        C --> D[Input Handler]
-        C --> E[Network Module]
-        C --> F[Processing Engine]
-        D --> G[Query Validator]
-        D --> H[Limit Validator]
-        E --> I[User-Agent Manager]
-        E --> J[HTTP Client]
-        E --> K[Progress Bar]
-        F --> L[Regex Extractor]
-        F --> M[Link Deduplicator]
-        C --> N[Output Generator]
-        N --> O[Text Writer]
-        N --> P[HTML Generator]
+flowchart TB
+    subgraph App["ScayTor Application"]
+        A["CLI Interface"] --> B["Argument Parser"]
+        B --> C["Main Controller"]
+        C --> D["Input Handler"]
+        C --> E["Network Module"]
+        C --> F["Processing Engine"]
+        D --> G["Query Validator"]
+        D --> H["Limit Validator"]
+        E --> I["User-Agent Manager"]
+        E --> J["HTTP Client"]
+        E --> K["Progress Bar"]
+        F --> L["Regex Extractor"]
+        F --> M["Link Deduplicator"]
+        C --> N["Output Generator"]
+        N --> O["Text Writer"]
+        N --> P["HTML Generator"]
     end
-    subgraph Ext[External Services]
-        Q[ahmia.fi Search Engine]
-        R[user-agents.txt File]
+    subgraph Ext["External Services"]
+        Q["ahmia.fi Search Engine"]
+        R["user-agents.txt File"]
     end
     J --> Q
     I --> R
-    subgraph Out[Output Files]
-        S[.txt File]
-        T[.html Report]
+    subgraph Out["Output Files"]
+        S[".txt File"]
+        T[".html Report"]
     end
     O --> S
     P --> T
-    classDef appFill fill:#ff6b9d
-    classDef controllerFill fill:#00ffd0
-    classDef externalFill fill:#ff26a6
-    classDef outputFill fill:#00ffd0
-    class A appFill
-    class C controllerFill
-    class Q externalFill
-    class S,T outputFill
 ```
 
 ### Data Flow Diagram

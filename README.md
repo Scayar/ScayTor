@@ -81,7 +81,7 @@
 
 ```mermaid
 graph TB
-    subgraph "ScayTor Application"
+    subgraph App["ScayTor Application"]
         A[CLI Interface] --> B[Argument Parser]
         B --> C[Main Controller]
         C --> D[Input Handler]
@@ -103,15 +103,15 @@ graph TB
         N --> P[HTML Generator]
     end
     
-    subgraph "External Services"
-        Q[(ahmia.fi<br/>Search Engine)]
-        R[(user-agents.txt<br/>File)]
+    subgraph Ext["External Services"]
+        Q[("ahmia.fi Search Engine")]
+        R[("user-agents.txt File")]
     end
     
     J --> Q
     I --> R
     
-    subgraph "Output Files"
+    subgraph Out["Output Files"]
         S[.txt File]
         T[.html Report]
     end

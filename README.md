@@ -79,38 +79,62 @@
 
 ### System Architecture
 
-```mermaid
-flowchart TB
-    subgraph App["ScayTor Application"]
-        A["CLI Interface"] --> B["Argument Parser"]
-        B --> C["Main Controller"]
-        C --> D["Input Handler"]
-        C --> E["Network Module"]
-        C --> F["Processing Engine"]
-        D --> G["Query Validator"]
-        D --> H["Limit Validator"]
-        E --> I["User-Agent Manager"]
-        E --> J["HTTP Client"]
-        E --> K["Progress Bar"]
-        F --> L["Regex Extractor"]
-        F --> M["Link Deduplicator"]
-        C --> N["Output Generator"]
-        N --> O["Text Writer"]
-        N --> P["HTML Generator"]
-    end
-    subgraph Ext["External Services"]
-        Q["ahmia.fi Search Engine"]
-        R["user-agents.txt File"]
-    end
-    J --> Q
-    I --> R
-    subgraph Out["Output Files"]
-        S[".txt File"]
-        T[".html Report"]
-    end
-    O --> S
-    P --> T
 ```
+┌─────────────────────────────────────────────────────────┐
+│                  ScayTor Application                    │
+├─────────────────────────────────────────────────────────┤
+│                                                          │
+│  [CLI Interface]                                         │
+│       │                                                  │
+│       ▼                                                  │
+│  [Argument Parser]                                       │
+│       │                                                  │
+│       ▼                                                  │
+│  [Main Controller] ───┬─────────────────┬─────────────┐│
+│                       │                 │             ││
+│                       ▼                 ▼             ▼│
+│              [Input Handler]  [Network Module]  [Processing]│
+│                       │                 │             ││
+│              ┌────────┴────────┐       │         ┌──┴───┐│
+│              │                 │       │         │      ││
+│        [Query Validator] [Limit Validator]       │      ││
+│                                              ┌───┴───┐  ││
+│                                              │        │  ││
+│                                     [User-Agent] [HTTP] [Progress]│
+│                                        │      │  Client   Bar ││
+│                                        │      │        │      ││
+│                                     [Regex] [Deduplicator]    ││
+│                                        │      │        │      ││
+│                                        └──────┴────────┘      ││
+│                       │                                      ││
+│                       ▼                                      ││
+│              [Output Generator]                              ││
+│                       │                                      ││
+│              ┌────────┴────────┐                            ││
+│              │                 │                            ││
+│        [Text Writer]     [HTML Generator]                    ││
+│              │                 │                            ││
+└──────────────┼─────────────────┼──────────────────────────┘
+               │                 │
+               ▼                 ▼
+         ┌──────────┐    ┌──────────┐
+         │ .txt File│    │ .html File│
+         └──────────┘    └──────────┘
+               
+         ┌──────────────────────┐
+         │  External Services    │
+         ├──────────────────────┤
+         │ ahmia.fi Search       │
+         │ user-agents.txt       │
+         └──────────────────────┘
+```
+
+**Component Flow:**
+- **CLI Interface** → Processes user input and command-line arguments
+- **Input Handler** → Validates search queries and result limits
+- **Network Module** → Manages HTTP requests, user agents, and progress display
+- **Processing Engine** → Extracts and deduplicates .onion links
+- **Output Generator** → Creates text files and HTML reports
 
 ### Data Flow Diagram
 
